@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hamed.Web.UI", "Hamed.Web.UI\Hamed.Web.UI.csproj", "{DCDE9E05-C245-48BC-9381-D96D50639376}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCDE9E05-C245-48BC-9381-D96D50639376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDE9E05-C245-48BC-9381-D96D50639376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDE9E05-C245-48BC-9381-D96D50639376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDE9E05-C245-48BC-9381-D96D50639376}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D07DA977-C2E7-4627-BB28-CC49E21A2C84}
+	EndGlobalSection
+EndGlobal
