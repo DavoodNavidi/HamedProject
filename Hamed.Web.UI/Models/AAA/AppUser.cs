@@ -8,5 +8,8 @@ namespace Hamed.Web.UI.Models.AAA
 {
     public class AppUser:IdentityUser
     {
+        public bool IsApproved { get; set; }
+        public bool IsBlocked { get; set; }
+        public string StatusTitle { get; set; }
     }
 }

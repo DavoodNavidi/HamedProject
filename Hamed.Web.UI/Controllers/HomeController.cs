@@ -16,12 +16,20 @@ namespace Hamed.Web.UI.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        }      
+            public IActionResult Index()
+            {
+                if (!User.Identity.IsAuthenticated)
+                {
+                    // User is logged in, redirect to a different page (e.g., dashboard)
+                    return RedirectToAction("CreateUser", "User");
+                }
+                else
+                {
+                    // User is not logged in, show the index page
+                    return View();
+                }
+            }      
 
         public IActionResult Privacy()
         {
