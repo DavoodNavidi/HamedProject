@@ -13,7 +13,8 @@ namespace Hamed.Web.UI.Models.AAA
     {
         public UserDbContext(DbContextOptions dbContextOptions ):base(dbContextOptions)
         {
-
+            
         }
+        public DbSet<Order> Orders { get; set; }
     }
 }
