@@ -26,7 +26,8 @@ namespace Hamed.Web.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
+            
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
             services.AddDbContext<UserDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("AAA")));
         }
 

@@ -21,35 +21,78 @@
     <!-- Bootstrap Core CSS RTL-->
     <link href="~/css/bootstrap-rtl.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="~/css/sb-admin.css" rel="stylesheet">
-    <link href="~/css/sb-admin-rtl.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="~/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="~/js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/js/plugins/morris/raphael.min.js"></script>
+    <script src="~/js/plugins/morris/morris.min.js"></script>
+    <script src="~/js/plugins/morris/morris-data.js"></script>
 
 </head>
 <body>
-    <h2>ایجاد کاربر</h2>
+        <div class="container mt-3 " dir="rtl">
+            <h2>سیستم فروش حامد یدک</h2>
+            <br>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#Login">ورود</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#Register">ثبت نام</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="Login" class="container tab-pane active">
+                <br>
+                <form asp-action="Login" method="post">
+                    <div class="form-group">
+                        <label asp-for="Username">نام کاربری:</label>
+                        <input asp-for="Username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">رمز عبور:</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                    </div>
 
-    <form asp-action="CreateUser" method="post">
-        <div class="form-group">
-            <label asp-for="Username">نام کاربری:</label>
-            <input asp-for="Username" class="form-control" />
+
+                    <button type="submit" class="btn btn-primary">ورود</button>
+                </form>
+            </div>
+            <div id="Register" class="container tab-pane ">
+                <br>
+                <form asp-action="CreateUser" method="post">
+                    <div class="form-group">
+                        <label asp-for="Username">نام کاربری:</label>
+                        <input asp-for="Username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">رمز عبور:</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber">شماره موبایل:</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">ثبت نام</button>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="Password">رمز عبور:</label>
-            <input asp-for="Password" type="password" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="PhoneNumber">شماره موبایل:</label>
-            <input asp-for="PhoneNumber" class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+
+
 </body>
 </html>
+

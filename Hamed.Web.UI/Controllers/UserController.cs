@@ -11,14 +11,16 @@ namespace Hamed.Web.UI.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserManager<AppUser> userManager;
-        public UserController(UserManager<AppUser> userManager)
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        public UserController(UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
         {
-            this.userManager = userManager;
+            this._userManager = userManager;
+            this._signInManager = signInManager;
         }
         public IActionResult UserList()
         {
-            var users = userManager.Users
+            var users = _userManager.Users
                 .Take(50)
                 .Select(a=>new AppUser
                 {
@@ -40,10 +42,46 @@ namespace Hamed.Web.UI.Controllers
         [HttpPost]
         public IActionResult CreateUser(UserViewModel user)
         {
+            if (ModelState.IsValid)
+            {
+                AppUser appUser = new AppUser
+                {
+                    UserName = user.Username,
+                    PhoneNumber = user.PhoneNumber
+                };
+                var result = _userManager.CreateAsync(appUser, user.Password).Result;
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError(item.Code, item.Description);
+                    }
+                }
+            }
+
             // Process the user data (e.g., save to database)
             // Redirect to another page or return a success message
-             return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
+        [HttpPost]
+        public IActionResult Login(UserViewModel userFromUI)
+        {
+            var user = _userManager.FindByNameAsync(userFromUI.Username).Result;
+            var result = _signInManager.PasswordSignInAsync(user, userFromUI.Password,false,false).Result;
+            if(result.Succeeded)
+            return RedirectToAction("Index", "Home");
+            else
+            {
+                return RedirectToAction("CreateUser", "User");               
+            }
+            // Process the user data (e.g., save to database)
+            // Redirect to another page or return a success message
+        }
+
 
     }
 }
