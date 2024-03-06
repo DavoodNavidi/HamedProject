@@ -1,47 +1,47 @@
 ﻿@model UserViewModel
-        <div dir="rtl">
+<div dir="rtl">
 
-            <form role="form" dir="rtl" method="post" action=@Url.Action("SearchUser","User") >
+    <form role="form" dir="rtl" method="post" action=@Url.Action("SearchUser","User")>
 
-                <div class="form-group">
-                    <label>جستجو بر اساس نام کاربری</label>
-                    <input class="form-control" id="txtUserName" name="UserName">
-                  
-                    <label>جستجو بر اساس شماره موبایل</label>
-                    <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber">
-                </div>
+        <div class="form-group">
+            <label>جستجو بر اساس نام کاربری</label>
+            <input class="form-control" id="txtUserName" name="UserName">
 
-                <button type="submit" class="btn btn-primary" >جستجو</button>
-
-            </form>
-
+            <label>جستجو بر اساس شماره موبایل</label>
+            <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber">
         </div>
-        <div>
-            <table class="table table-bordered table-striped" dir="rtl">
-                <tr>
-                    <th>نام کاربر</th>
-                    <th>شماره موبایل</th>
-                    <th>وضعیت</th>
-                </tr>
 
-                @foreach (var item in Model.PaginatedUsers())
-                {
-                    <tr>
-                        <td>@item.UserName</td>
-                        <td>@item.PhoneNumber</td>
-                        <td>@item.StatusTitle</td>
+        <button type="submit" class="btn btn-primary">جستجو</button>
 
-                    </tr>
-                }
+    </form>
 
-            </table>
-            <ul class="pagination">
-                @for (int i = 1; i <= Model.PageCount(); i++)
-                {
-                    <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
-                        <a class="page-link" href="@Url.Action("UserList", new { page = i })">@i</a>
-                    </li>
+</div>
+<div>
+    <table class="table table-bordered table-striped" dir="rtl">
+        <tr>
+            <th>نام کاربر</th>
+            <th>شماره موبایل</th>
+            <th>وضعیت</th>
+        </tr>
 
-                }
-            </ul>
-        </div>
+        @foreach (var item in Model.PaginatedUsers())
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.StatusTitle</td>
+
+            </tr>
+        }
+
+    </table>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount(); i++)
+        {
+            <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
+                <a class="page-link" href="@Url.Action("SearchUser", "User", new { page = i,UserName=Model.Username,PhoneNumber=Model.PhoneNumber })">@i</a>
+            </li>
+
+        }
+    </ul>
+</div>

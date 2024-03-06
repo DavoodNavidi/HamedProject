@@ -54,7 +54,9 @@ namespace Hamed.Web.UI.Controllers
             {
                 UserPerPage = 5,
                 Users = _users,
-                CurrentPage = page
+                CurrentPage = page,
+                Username=UserName,
+                PhoneNumber=PhoneNumber
             };
 
             return View("UserList",users);
