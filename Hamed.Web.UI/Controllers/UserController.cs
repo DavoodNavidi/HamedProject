@@ -18,19 +18,49 @@ namespace Hamed.Web.UI.Controllers
             this._userManager = userManager;
             this._signInManager = signInManager;
         }
-        public IActionResult UserList()
+        public IActionResult UserList(int page=1)
         {
-            var users = _userManager.Users
-                .Take(50)
-                .Select(a=>new AppUser
-                {
-                   UserName= a.UserName,
-                    PhoneNumber=a.PhoneNumber,
-                    StatusTitle= a.StatusTitle
-                })
-                .ToList<AppUser>();
+            //var users = _userManager.Users
+            //    .Take(50)
+            //    .Select(a=>new UserViewModel
+            //    {
+            //        Username= a.UserName,
+            //        PhoneNumber=a.PhoneNumber,
+            //        StatusTitle= a.StatusTitle
+            //    })
+            //    .ToList<UserViewModel>();
+            var users = new UserViewModel
+            {
+                UserPerPage =5 ,
+                Users = _userManager.Users,
+                CurrentPage = page
+            };
             return View(users);
         }
+        public IActionResult SearchUser(string UserName,string PhoneNumber,int page=1)
+        {
+            var _users = _userManager.Users;
+            if (UserName is not null)
+            {
+                _users = _users
+                    .Where(a => a.UserName.Contains(UserName.Trim()));
+            }
+            if (PhoneNumber is not null)
+            {
+                _users = _users
+                    .Where(a => a.PhoneNumber==PhoneNumber.Trim());
+            }
+            var users = new UserViewModel
+            {
+                UserPerPage = 5,
+                Users = _users,
+                CurrentPage = page
+            };
+
+            return View("UserList",users);
+
+        }
+
         public IActionResult ConfirmUsers()
         {
             var users = _userManager.Users
