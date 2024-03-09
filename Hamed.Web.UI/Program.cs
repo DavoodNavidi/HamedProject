@@ -22,5 +22,6 @@ namespace Hamed.Web.UI
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
