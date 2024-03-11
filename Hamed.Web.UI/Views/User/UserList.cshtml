@@ -5,13 +5,13 @@
 
         <div class="form-group">
             <label>جستجو بر اساس نام کاربری</label>
-            <input class="form-control" id="txtUserName" name="UserName">
+            <input class="form-control" id="txtUserName" name="UserName" value="@Model.Username">
 
             <label>جستجو بر اساس شماره موبایل</label>
-            <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber">
+            <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber">
         </div>
 
-        <button type="submit" class="btn btn-primary">جستجو</button>
+        <button type="submit" class="btn btn-primary" >جستجو</button>
 
     </form>
 
@@ -45,3 +45,4 @@
         }
     </ul>
 </div>
+

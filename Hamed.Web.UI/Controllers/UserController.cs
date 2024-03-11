@@ -91,7 +91,7 @@ namespace Hamed.Web.UI.Controllers
                 if (result.Succeeded)
                 {
                     // Handle success (e.g., redirect to a success page)
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ConfirmUsers", "User");
                 }
                 else
                 {
