@@ -1,0 +1,18 @@
+﻿@model List<Microsoft.AspNetCore.Identity.IdentityRole>
+<div>
+    <table class="table table-bordered table-striped" dir="rtl">
+        <tr>
+            <th>نام نقش</th>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+               
+            </tr>
+        }
+
+    </table>  
+</div>

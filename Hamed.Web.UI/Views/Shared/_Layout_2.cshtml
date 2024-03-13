@@ -9,24 +9,23 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/css/style.css">
-    @*
-    <link href="~/css/bootstrap-rtl.css" rel="stylesheet" />*@
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/css/bootstrap-rtl.css" rel="stylesheet" />
     <script src="~/lib/jquery/dist/jquery.js"></script>
 </head>
 <body>
 
     <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar" class="active ">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                    <i class="fa fa-bars"></i>
-                    <span class="sr-only">Toggle Menu</span>
-                </button>
-            </div>
-            <div class="p-4">
-                <h1><a class="logo">حامد یدک</a></h1>
+
+        <!-- Right Sidebar -->
+        <nav class="bg-light active" style="width: 250px;">
+            <!-- Sidebar content here -->
+            <!-- Example: navigation links, user profile, etc. -->
+            <div class="p-4 text-nowrap d-flex " >
                 <ul class="list-unstyled components mb-5">
 
+             
                     <li class="active"><span class="fa fa-user mr-3"></span>@Html.ActionLink("لیست کاربران", "UserList", "User")</li>
                     <li class="active"><span class="fa fa-level-up mr-3"></span>@Html.ActionLink("تایید کاربران", "ConfirmUsers", "User")</li>
                     <li class="active"><span class="fa fa-list mr-3"></span>@Html.ActionLink("لیست سفارشات", "OrderList", "Order")</li>
@@ -35,25 +34,26 @@
                     <li class="active"><span class="fa fa-sign-out mr-3"></span>@Html.ActionLink("خروج", "Logout", "User")</li>
 
                 </ul>
-
-
-
-                <div class="footer">
-
-                </div>
-
             </div>
         </nav>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
+        <!-- Main Content Area -->
+        <main class="flex-fill">
+            <!-- Main content here -->
+            <!-- Example: page content, forms, tables, etc. -->
             @RenderBody()
-        </div>
+        </main>
+
+        <!-- Left Sidebar (if needed) -->
+        <nav class="bg-light" style="width: 250px;">
+            <!-- Sidebar content here -->
+            <!-- Example: additional navigation links, filters, etc. -->
+        </nav>
     </div>
     <script src="~/js/popper.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/main.js"></script>
-    
+
 </body>
 </html>
 
