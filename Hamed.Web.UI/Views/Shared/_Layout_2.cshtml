@@ -1,33 +1,56 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-    <title>سیستم فروش همکار</title>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <title>سیستم فروش حامد</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS RTL-->
+    <link href="~/css/bootstrap-rtl.min.css" rel="stylesheet">
+
+
+
+    <!-- Custom Fonts -->
     <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="~/js/jquery.js"></script>
 
-    <link href="~/css/bootstrap-rtl.css" rel="stylesheet" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/js/plugins/morris/raphael.min.js"></script>
+    <script src="~/js/plugins/morris/morris.min.js"></script>
+    <script src="~/js/plugins/morris/morris-data.js"></script>
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-dark bg-secondary">
-            <h2 dir="rtl">سیستم فروش همکار </h2>
         </nav>
     </header>
+    <div style="display: flex; justify-content: center; align-items: center;" dir="rtl">
+        <h2>سیستم فروش حامد یدک</h2>
+        <br>
+    </div>
     <div class="wrapper d-flex align-items-stretch">
 
         <!-- Right Sidebar -->
         <nav class="bg-light active" style="width: 250px;">
             <!-- Sidebar content here -->
             <!-- Example: navigation links, user profile, etc. -->
-            <div class="p-4 text-nowrap d-flex ">
-                <ul class="list-unstyled list-group components mb-5" style="direction: rtl;">
+            <div class="p-4 text-nowrap d-flex " style="width:inherit;">
+                <ul class="list-unstyled list-group components mb-5" style="direction: ltr; width:fit-content();">
 
 
                     <li class=" list-group-item"><span class="fa fa-user mr-3">  </span><span>  </span>@Html.ActionLink("لیست کاربران", "UserList", "User")</li>
@@ -49,10 +72,10 @@
         </main>
 
         <!-- Left Sidebar (if needed) -->
-        <nav class="bg-light" style="width: 250px;">
+        <!--<nav class="bg-light" style="width: 250px;">-->
             <!-- Sidebar content here -->
             <!-- Example: additional navigation links, filters, etc. -->
-        </nav>
+        <!--</nav>-->
     </div>
     <script src="~/js/popper.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
