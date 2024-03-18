@@ -1,13 +1,13 @@
-﻿@model List<AppUser>
+﻿@model UserViewModel
 <table class="table table-bordered table-striped">
     <tr>
         <th>نام کاربر</th>
         <th>شماره موبایل</th>
         <th>وضعیت</th>
     </tr>
-    @if (Model.Any())
+    @if (Model.Users.Any())
     {
-        @foreach (var item in Model)
+        @foreach (var item in Model.Users)
         {
 <tr>
     <td>@item.UserName</td>

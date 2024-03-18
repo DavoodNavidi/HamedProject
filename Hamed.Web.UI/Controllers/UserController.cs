@@ -66,17 +66,14 @@ namespace Hamed.Web.UI.Controllers
         public IActionResult ConfirmUsers()
         {
             var users = _userManager.Users
-                .Where(a=>!a.IsApproved)
-                .Take(50)
-                .Select(a => new AppUser
-                {
-                    UserName = a.UserName,
-                    PhoneNumber = a.PhoneNumber,
-                    StatusTitle = a.StatusTitle,
-                    Id=a.Id
-                })
-                .ToList<AppUser>();
-            return View(users);
+                .Where(a => !a.IsApproved)
+                .Take(50);
+
+            var _Users= new UserViewModel
+            {
+                Users = users
+        };
+            return View(_Users);
 
         }
         public async Task<IActionResult> ConfirmCurrentUser(string Id)
@@ -163,7 +160,7 @@ namespace Hamed.Web.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> EditUser(AppUser user)
         {
-            var currentUser = await _userManager.FindByNameAsync(user.UserName);
+            var currentUser = _userManager.GetUserAsync(User).Result;
             if (currentUser != null)
             {
                 // Update user data in the database
