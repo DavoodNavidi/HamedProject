@@ -55,7 +55,7 @@ namespace Hamed.Web.UI.Controllers
                 UserPerPage = 5,
                 Users = _users,
                 CurrentPage = page,
-                Username=UserName,
+                UserName=UserName,
                 PhoneNumber=PhoneNumber
             };
 
@@ -115,6 +115,20 @@ namespace Hamed.Web.UI.Controllers
         {
             return View();
         }
+        public IActionResult EditUser()
+        {
+            AppUser currentUser = _userManager.FindByNameAsync(User.Identity.Name).Result;
+            UserViewModel user = new UserViewModel
+            {
+                UserName = currentUser.UserName,
+                FirstName = currentUser.FirstName,
+                LastName = currentUser.LastName,
+                Address = currentUser.Address,
+                PhoneNumber = currentUser.PhoneNumber
+            };
+            
+            return View("EditUser",user);
+        }
         [HttpPost]
         public IActionResult CreateUser(UserViewModel user)
         {
@@ -122,7 +136,7 @@ namespace Hamed.Web.UI.Controllers
             {
                 AppUser appUser = new AppUser
                 {
-                    UserName = user.Username,
+                    UserName = user.UserName,
                     PhoneNumber = user.PhoneNumber,
                     IsApproved=false,
                     IsBlocked=false,
@@ -147,9 +161,44 @@ namespace Hamed.Web.UI.Controllers
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
+        public async Task<IActionResult> EditUser(AppUser user)
+        {
+            var currentUser = await _userManager.FindByNameAsync(user.UserName);
+            if (currentUser != null)
+            {
+                // Update user data in the database
+                currentUser.PhoneNumber = user.PhoneNumber;
+                currentUser.FirstName = user.FirstName;
+                currentUser.LastName = user.LastName;
+                currentUser.Address = user.Address;
+                var result = await _userManager.UpdateAsync(currentUser);
+                if (result.Succeeded)
+                {
+                    // Handle success (e.g., redirect to a success page)
+                    return RedirectToAction("EditUser", "User");
+                }
+                else
+                {
+                    // Handle errors (e.g., display error messages)
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            else
+            {
+                // User not found
+                return NotFound();
+            }
+
+            // Handle other scenarios (e.g., invalid input)
+            return View();
+        }
+        [HttpPost]
         public IActionResult Login(UserViewModel userFromUI)
         {
-            var user = _userManager.FindByNameAsync(userFromUI.Username).Result;
+            var user = _userManager.FindByNameAsync(userFromUI.UserName).Result;
             var result = _signInManager.PasswordSignInAsync(user, userFromUI.Password,false,false).Result;
             if(result.Succeeded)
             return RedirectToAction("Index", "Home");

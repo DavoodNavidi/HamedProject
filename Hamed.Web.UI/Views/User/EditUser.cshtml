@@ -1,0 +1,31 @@
+﻿@model UserViewModel
+ 
+    <div dir="rtl">
+
+        <form role="form" dir="rtl" method="post" action=@Url.Action("EditUser","User")>
+
+            <div class="form-group">
+                <label>نام کاربری </label>
+                <input class="form-control" id="txtUserName" name="UserName" value="@Model.UserName" readonly>
+
+                <label>شماره موبایل</label>
+                @*<input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" required>*@
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "شماره موبایل", required = "required" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber)
+                <br />
+
+                <label>نام </label>
+                <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="FirstName" value="@Model.FirstName" required>
+
+                <label>نام خانوادگی</label>
+                <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="LastName" value="@Model.LastName" required>
+
+                <label>آدرس</label>
+                <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="Address" value="@Model.Address" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">ویرایش</button>
+
+        </form>
+
+    </div>

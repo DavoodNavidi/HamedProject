@@ -11,5 +11,11 @@ namespace Hamed.Web.UI.Models.AAA
         public bool IsApproved { get; set; }
         public bool IsBlocked { get; set; }
         public string StatusTitle { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+
+
+
     }
 }

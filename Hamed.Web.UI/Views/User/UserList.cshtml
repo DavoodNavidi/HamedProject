@@ -5,7 +5,7 @@
 
         <div class="form-group">
             <label>جستجو بر اساس نام کاربری</label>
-            <input class="form-control" id="txtUserName" name="UserName" value="@Model.Username">
+            <input class="form-control" id="txtUserName" name="UserName" value="@Model.UserName">
 
             <label>جستجو بر اساس شماره موبایل</label>
             <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber">
@@ -39,7 +39,7 @@
         @for (int i = 1; i <= Model.PageCount(); i++)
         {
             <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
-                <a class="page-link" href="@Url.Action("SearchUser", "User", new { page = i,UserName=Model.Username,PhoneNumber=Model.PhoneNumber })">@i</a>
+                <a class="page-link" href="@Url.Action("SearchUser", "User", new { page = i,UserName=Model.UserName,PhoneNumber=Model.PhoneNumber })">@i</a>
             </li>
 
         }
