@@ -45,7 +45,7 @@
         </nav>
     </header>    
     <div style="display: flex; justify-content: center; align-items: center;" dir="rtl">
-        <h2>سیستم فروش حامد یدک</h2>
+        <h2>سیستم فروش </h2>
         <br>
     </div>
     <div class="container mt-3 " style="display: flex; justify-content: center; align-items: center;" dir="rtl">
@@ -86,15 +86,23 @@
                     <label asp-for="UserName">نام کاربری:</label>
                     <input asp-for="UserName" class="form-control" />
                 </div>
+
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber">شماره موبایل:</label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                </div>
                 <div class="form-group">
                     <label asp-for="Password">رمز عبور:</label>
                     <input asp-for="Password" type="password" class="form-control" />
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="PhoneNumber">شماره موبایل:</label>
-                    <input asp-for="PhoneNumber" class="form-control" />
+                    <label asp-for="ConfirmPassword">تکرار رمز عبور:</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" />
                 </div>
+
+
                 <button type="submit" class="btn btn-primary">ثبت نام</button>
             </form>
         </div>

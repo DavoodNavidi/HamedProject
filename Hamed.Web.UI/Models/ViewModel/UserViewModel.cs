@@ -12,6 +12,9 @@ namespace Hamed.Web.UI.Models.ViewModel
         
         public string UserName { get; set; }
         public string Password { get; set; }
+        [Compare("Password")]
+        public string ConfirmPassword { get; set; }
+
 
         [Required(ErrorMessage ="شماره موبایل اجباری است ")]
         public string PhoneNumber { get; set; }
