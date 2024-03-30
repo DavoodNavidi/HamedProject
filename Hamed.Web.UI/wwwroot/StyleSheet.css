@@ -67,6 +67,7 @@ body {
     background: linear-gradient(to right, #599fd9, #c2e59c);
     min-height: 100vh;
     overflow-x: hidden;
+    font-family: BYekan, sans-serif;
 }
 
 .separator {
@@ -80,5 +81,10 @@ body {
 
 .text-gray {
     color: #aaa;
+}
+@font-face {
+    font-family: 'BYekan';
+    src: url('../fonts/BYekan.ttf') format('truetype');
+    /* Adjust the path based on your project structure */
 }
 
