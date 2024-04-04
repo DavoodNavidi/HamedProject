@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hamed.Web.UI.Models.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,15 @@ namespace Hamed.Web.UI.Controllers
     {
         public IActionResult CreateOrder()
         {
-            return View();
+          
+
+            // User is not logged in, show the index page
+            UserViewModel userViewModel = new UserViewModel
+            {
+                UserName = "",
+                RoleName =  "مشتری"
+            };
+            return View(userViewModel);
         }
         public IActionResult OrderList()
         {

@@ -16,5 +16,6 @@ namespace Hamed.Web.UI.Models.AAA
             
         }
         public DbSet<Order> Orders { get; set; }
+      
     }
 }

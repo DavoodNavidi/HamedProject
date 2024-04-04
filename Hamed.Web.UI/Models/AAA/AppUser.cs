@@ -16,6 +16,5 @@ namespace Hamed.Web.UI.Models.AAA
         public string Address { get; set; }
 
 
-
     }
 }

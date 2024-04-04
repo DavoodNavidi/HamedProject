@@ -127,7 +127,7 @@ namespace Hamed.Web.UI.Controllers
             return View("EditUser",user);
         }
         [HttpPost]
-        public IActionResult CreateUser(UserViewModel user)
+        public IActionResult CreateUser(SimpleUserViewModel user)
         {
             if (ModelState.IsValid)
             {
