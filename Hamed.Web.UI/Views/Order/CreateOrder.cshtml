@@ -7,11 +7,19 @@
 </div>
 <div dir="rtl">
 
-    <form role="form" dir="rtl" method="post" action=@Url.Action("SearchUser","User")>
+    <form role="form" dir="rtl">
 
 
+        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
 
-        <button type="submit" class="btn btn-primary">جستجو</button>
+            <span class="font-weight-bold" style="font-size:large;">کاربران</span>
+        </p>
+        <label>نام </label>
+        <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="FirstName" value="@Model.FirstName" required>
+
+        <label>نام خانوادگی</label>
+        <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="LastName" value="@Model.LastName" required>
+
 
     </form>
 
