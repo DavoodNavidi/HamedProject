@@ -5,25 +5,7 @@
 <div dir="rtl">
     <h4> ثبت سفارش</h4>
 </div>
-<div dir="rtl">
 
-    <form role="form" dir="rtl">
-
-
-        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
-
-            <span class="font-weight-bold" style="font-size:large;">کاربران</span>
-        </p>
-        <label>نام </label>
-        <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="FirstName" value="@Model.FirstName" required>
-
-        <label>نام خانوادگی</label>
-        <input class="form-control" placeholder="Enter text" id="txtPhoneNumber" name="LastName" value="@Model.LastName" required>
-
-
-    </form>
-
-</div>
 <div id="jsGrid" dir="rtl"></div>
 
 <script>
@@ -61,7 +43,7 @@
             { name: "Quantity", type: "text", width: 200, title: "تعداد" },
             { name: "Fee", type: "text", width: 200, title: "فی" },
 
-            { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
+            //{ name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
         //    { name: "Married", type: "checkbox", title: "Is Married", sorting: false }
         ]
     });

@@ -23,11 +23,21 @@ namespace Hamed.Web.UI.Controllers
         }
         public IActionResult OrderList()
         {
-            return View();
+            UserViewModel userViewModel = new UserViewModel
+            {
+                UserName = "",
+                RoleName = "مشتری"
+            };
+            return View(userViewModel);
         }
         public IActionResult OrderTracking()
         {
-            return View();
+            UserViewModel userViewModel = new UserViewModel
+            {
+                UserName = "",
+                RoleName = "مشتری"
+            };
+            return View(userViewModel);
         }
     }
 }
