@@ -112,6 +112,10 @@ namespace Hamed.Web.UI.Controllers
         {
             return View();
         }
+        public IActionResult login()
+        {
+            return View();
+        }
         public IActionResult EditUser()
         {
             AppUser currentUser = _userManager.FindByNameAsync(User.Identity.Name).Result;
@@ -135,9 +139,9 @@ namespace Hamed.Web.UI.Controllers
                 {
                     UserName = user.UserName,
                     PhoneNumber = user.PhoneNumber,
-                    IsApproved=false,
-                    IsBlocked=false,
-                    StatusTitle="تایید نشده"
+                    IsApproved = false,
+                    IsBlocked = false,
+                    StatusTitle = "تایید نشده"
                 };
                 var result = _userManager.CreateAsync(appUser, user.Password).Result;
                 if (result.Succeeded)
@@ -148,14 +152,22 @@ namespace Hamed.Web.UI.Controllers
                 {
                     foreach (var item in result.Errors)
                     {
-                        ModelState.AddModelError(item.Code, item.Description);
+                        if (item.Code.Contains("Password"))
+                        {
+                        ModelState.AddModelError("Password", item.Description);
+                        }
+                        else
+                            ModelState.AddModelError(item.Code, item.Description);
+
                     }
                 }
             }
+            
+           
 
             // Process the user data (e.g., save to database)
             // Redirect to another page or return a success message
-            return RedirectToAction("Index", "Home");
+            return View(user);
         }
         [HttpPost]
         public async Task<IActionResult> EditUser(AppUser user)
@@ -209,7 +221,7 @@ namespace Hamed.Web.UI.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("CreateUser", "User");  // Redirect to home page after logout
+            return RedirectToAction("Login", "User");  // Redirect to home page after logout
         }
 
 

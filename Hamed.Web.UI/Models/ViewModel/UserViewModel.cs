@@ -46,10 +46,16 @@ namespace Hamed.Web.UI.Models.ViewModel
 
     public class SimpleUserViewModel
     {
-      
+        [Required(ErrorMessage = "نام کاربری اجباری است")]
+
         public string UserName { get; set; }
+        [Required(ErrorMessage = "رمز عبور اجباری است")]
+
         public string Password { get; set; }
-        [Compare("Password")]
+        [Compare("Password",ErrorMessage = "رمز عبور با تکرار رمز عبور یکسان نیست")]
+
+        [Required(ErrorMessage = "تکرار رمز عبور اجباری است")]
+
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "شماره موبایل اجباری است ")]

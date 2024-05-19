@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hamed.Web.UI.Shared;
 
 namespace Hamed.Web.UI
 {
@@ -27,7 +28,8 @@ namespace Hamed.Web.UI
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders()
+                        .AddErrorDescriber<CustomIdentityErrorDescriber>();            
             services.AddDbContext<UserDbContext>(c => c.UseSqlServer(Configuration.GetConnectionString("AAA")));
         }
 

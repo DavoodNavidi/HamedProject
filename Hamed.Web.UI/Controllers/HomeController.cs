@@ -29,7 +29,7 @@ namespace Hamed.Web.UI.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 // User is logged in, redirect to a different page (e.g., dashboard)
-                return RedirectToAction("CreateUser", "User");
+                return RedirectToAction("Login", "User");
             }
             else
             {
