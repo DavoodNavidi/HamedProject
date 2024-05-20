@@ -110,7 +110,8 @@ namespace Hamed.Web.UI.Controllers
         }
         public IActionResult CreateUser()
         {
-            return View();
+            SimpleUserViewModel simpleUserViewModel = new SimpleUserViewModel();
+            return View(simpleUserViewModel);
         }
         public IActionResult login()
         {
@@ -150,20 +151,25 @@ namespace Hamed.Web.UI.Controllers
                 }
                 else
                 {
+                    string PasswordErrors = string.Empty;
+                    string UserNameErrors = string.Empty;
+
                     foreach (var item in result.Errors)
                     {
                         if (item.Code.Contains("Password"))
                         {
-                        ModelState.AddModelError("Password", item.Description);
+                            PasswordErrors += $@"<p> {item.Description} <br> </p> ";
                         }
                         else if (item.Code.Contains("UserName"))
                         {
-                            ModelState.AddModelError("UserName", item.Description);
+                            PasswordErrors += $@"{item.Description}<br>";                     
                         }
                         else
                             ModelState.AddModelError(item.Code, item.Description);
-
                     }
+                    //ModelState.AddModelError("Password", PasswordErrors);
+                    user.PasswordErrors = PasswordErrors;
+                    ModelState.AddModelError("UserName", UserNameErrors);
                 }
             }
             
@@ -171,6 +177,7 @@ namespace Hamed.Web.UI.Controllers
 
             // Process the user data (e.g., save to database)
             // Redirect to another page or return a success message
+
             return View(user);
         }
         [HttpPost]

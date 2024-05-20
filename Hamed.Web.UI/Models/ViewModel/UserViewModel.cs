@@ -60,8 +60,12 @@ namespace Hamed.Web.UI.Models.ViewModel
 
         [Required(ErrorMessage = "شماره موبایل اجباری است ")]
         public string PhoneNumber { get; set; }
-       
-      
+
+        public string PasswordErrors { get; set; } = "";
+
+        
+
+
     }
 
 }
