@@ -162,14 +162,15 @@ namespace Hamed.Web.UI.Controllers
                         }
                         else if (item.Code.Contains("UserName"))
                         {
-                            PasswordErrors += $@"{item.Description}<br>";                     
+                            UserNameErrors += $@"{item.Description}<br>";                     
                         }
                         else
                             ModelState.AddModelError(item.Code, item.Description);
                     }
                     //ModelState.AddModelError("Password", PasswordErrors);
                     user.PasswordErrors = PasswordErrors;
-                    ModelState.AddModelError("UserName", UserNameErrors);
+                    user.UserNameErrors = UserNameErrors;
+
                 }
             }
             

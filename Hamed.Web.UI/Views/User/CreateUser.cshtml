@@ -68,7 +68,12 @@
                 <div class="form-group">
                     <label asp-for="UserName">نام کاربری:</label>
                     <input asp-for="UserName" class="form-control" />
-                    @Html.ValidationMessageFor(m => m.UserName, "", new { @style = "color: red;" })
+                    <div style="color: red;">
+                        @if (Model.UserNameErrors.Trim() != "")
+                    {
+                        @Html.Raw(Model.UserNameErrors)
+                    }
+                    </div>               
                 </div>
 
 
@@ -80,7 +85,6 @@
                 <div class="form-group">
                     <label asp-for="Password">رمز عبور:</label>
                     <input asp-for="Password" type="password" class="form-control" />
-                    @*@Html.ValidationMessageFor(m => m.Password,"", new { @style = "color: red;" })*@
                 <div style = "color: red;">
                     @if (Model.PasswordErrors.Trim() != "")
                     {

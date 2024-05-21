@@ -62,8 +62,7 @@ namespace Hamed.Web.UI.Models.ViewModel
         public string PhoneNumber { get; set; }
 
         public string PasswordErrors { get; set; } = "";
-
-        
+        public string UserNameErrors { get; set; } = "";
 
 
     }
